@@ -1,0 +1,31 @@
+name: ClipVault
+options:
+  bundleIdPrefix: com.clipvault
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    PRODUCT_BUNDLE_IDENTIFIER: com.clipvault.app
+    PRODUCT_NAME: ClipVault
+    GENERATE_INFOPLIST_FILE: YES
+    INFOPLIST_KEY_CFBundleDisplayName: ClipVault
+    INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.productivity
+    ENABLE_APP_SANDBOX: NO
+    CODE_SIGN_STYLE: Manual
+    CODE_SIGN_IDENTITY: "-"
+targets:
+  ClipVault:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sources
+    settings:
+      base:
+        INFOPLIST_KEY_NSAccessibilityUsageDescription: "ClipVault uses Accessibility permission to paste the selected clipboard item into the active app."
+        INFOPLIST_KEY_LSUIElement: NO
+    entitlements:
+      path: ClipVault.entitlements
+      properties: {}
